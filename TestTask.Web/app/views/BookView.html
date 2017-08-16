@@ -1,0 +1,89 @@
+﻿<style>
+    .table th, .table td {
+        border: 1px !important;
+    }
+</style>
+<!--ModalAddWindow-->
+<div id="addBookModalWindow" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <form name="modalBookForm">
+                <div class="well text-center col-md-8 col-md-offset-2" style="background-color:#F5F3EE">
+                    <div class="row">
+                        <div>
+                            <table class="table borderless" style="margin-bottom:0px">
+                                <tbody>
+                                    <tr><td class="col-md-1">Title</td><td><input type="text" class="form-control" ng-model="bookCreateModel .title"></td></tr>
+                                    <tr><td>Author</td><td><input type="text" class="form-control" ng-model="bookCreateModel .author"></td></tr>
+                                    <tr><td>EditionDate</td><td><input type="date" class="form-control" ng-model="bookCreateModel .editionDate"></td></tr>
+                                    <tr class="text-right">
+                                        <td colspan="2">
+                                            <button class="btn btn-success " ng-click="create(bookCreateModel)" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                                            </button>
+                                            <button class="btn btn-danger" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Cancel
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Navbar-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="form-row" style="margin-top:15px">
+                <div class="form-group col-md-3">
+                    <button class="form-control btn btn-success" data-toggle="modal" data-target="#addBookModalWindow">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new book
+                    </button>
+                </div>
+                <div class="form-group col-md-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" ng-model="searchPattern">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" ng-click="searchByAuthorTitle(searchPattern)">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Body-->
+<div style="margin-top:70px">
+    <div ng-repeat="book in books" class="container body-content">
+        <div class="well text-center col-md-8 col-md-offset-2" style="background-color:#F5F3EE">
+            <div class="row">
+                <div>
+                    <table class="table borderless" style="margin-bottom:0px">
+                        <tbody >
+                            <tr><td class="col-md-1">Title</td><td><input type="text" class="form-control" ng-model="book.title"></td></tr>
+                            <tr><td>Author</td><td><input type="text" class="form-control" ng-model="book.author"></td></tr>
+                            <tr><td>EditionDate</td><td><input type="date" class="form-control" ng-model="book.editionDate"></td></tr>
+                            <tr class="text-right">
+                                <td colspan="2">
+                                    <button class="btn btn-primary" ng-click="update(book)">
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
+                                    </button>
+                                    <button class="btn btn-danger " ng-click="delete(book.id)">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
