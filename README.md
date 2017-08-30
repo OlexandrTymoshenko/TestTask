@@ -1,5 +1,4 @@
-# TestTask
-ASP.NET Web Api + Angularjs test project
+# TestTask (ASP.NET Web Api, Entity Framework, Angularjs)
 
 ![Build status](https://ci.appveyor.com/api/projects/status/r8r8hac8mcip3l61?svg=true)
 
